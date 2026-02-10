@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Forever 💍</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  height:100vh;
+  background:radial-gradient(circle at bottom,#2b0010,#000);
+  overflow:hidden;
+  font-family:Poppins,sans-serif;
+  color:white;
+}
+
+/* ===== IMPROVED IMAGE FLASH ===== */
+.flash{
+  position:fixed;
+  inset:0;
+  z-index:0;
+}
+.flash img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  opacity:0;
+  filter:brightness(1.1) contrast(1.1);
+  animation:flash 12s infinite;
+}
+.flash img:nth-child(1){animation-delay:0s}
+.flash img:nth-child(2){animation-delay:4s}
+.flash img:nth-child(3){animation-delay:8s}
+
+@keyframes flash{
+  0%{opacity:0;transform:scale(1)}
+  15%{opacity:.45}
+  35%{opacity:.45;transform:scale(1.06)}
+  50%{opacity:0}
+  100%{opacity:0}
+}
+
+/* ===== ROCKET ===== */
+.rocket{
+  position:fixed;
+  bottom:40px;
+  left:50%;
+  transform:translateX(-50%);
+  font-size:80px;
+  cursor:pointer;
+  animation:pulse 1.8s infinite;
+  z-index:3;
+}
+@keyframes pulse{
+  50%{transform:translateX(-50%) scale(1.1)}
+}
+
+.takeoff{
+  animation:fly 3.2s ease-in forwards;
+}
+@keyframes fly{
+  to{bottom:120vh}
+}
+
+/* ===== FIREWORKS ===== */
+.fire{
+  position:fixed;
+  font-size:26px;
+  animation:blast 1.8s ease-out forwards;
+}
+@keyframes blast{
+  from{transform:scale(.3);opacity:1}
+  to{transform:scale(2.6);opacity:0}
+}
+
+/* ===== TEXT ===== */
+.center{
+  position:fixed;
+  top:18%;
+  width:100%;
+  text-align:center;
+  z-index:2;
+}
+h1{
+  font-family:'Dancing Script',cursive;
+  font-size:2.8rem;
+  animation:heartbeat 2s infinite;
+}
+@keyframes heartbeat{
+  50%{transform:scale(1.08)}
+}
+p{
+  color:#ffb3c6;
+  font-size:1.2rem;
+}
+
+/* ===== WHATSAPP ===== */
+#yes{
+  position:fixed;
+  bottom:30px;
+  left:50%;
+  transform:translateX(-50%) scale(0);
+  background:#25D366;
+  color:white;
+  padding:14px 30px;
+  border-radius:40px;
+  font-size:1.2rem;
+  text-decoration:none;
+  box-shadow:0 10px 25px rgba(37,211,102,.6);
+  animation:show 1s forwards;
+  animation-delay:7s;
+  z-index:4;
+}
+@keyframes show{
+  to{transform:translateX(-50%) scale(1)}
+}
+</style>
+</head>
+
+<body>
+
+<div class="flash">
+  <img src="mem1.jpg">
+  <img src="mem2.jpg">
+  <img src="mem3.jpg">
+</div>
+
+<div class="center">
+  <h1>Deepa 💖</h1>
+  <p>Will you be mine forever? ♾️💍</p>
+</div>
+
+<div class="rocket" id="rocket">🚀</div>
+
+<a id="yes"
+href="https://wa.me/919113539153?text=Yes%20Mani%20💖%20I%20choose%20you%20forever%20♾️💍"
+target="_blank">
+YES 💚
+</a>
+
+<script>
+const rocket=document.getElementById("rocket");
+
+rocket.addEventListener("click",()=>{
+  rocket.classList.add("takeoff");
+  setInterval(firework,280);
+});
+
+function firework(){
+  const f=document.createElement("div");
+  f.className="fire";
+  f.innerText=["🎆","✨","💥","💖"][Math.floor(Math.random()*4)];
+  f.style.left=Math.random()*innerWidth+"px";
+  f.style.top=Math.random()*innerHeight+"px";
+  document.body.appendChild(f);
+  setTimeout(()=>f.remove(),1800);
+}
+</script>
+
+</body>
+</html>

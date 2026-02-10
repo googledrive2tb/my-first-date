@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forever Valentine 💖</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  min-height:100vh;
+  background:linear-gradient(180deg,#e9a9a1,#f5c1b7);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:'Poppins',sans-serif;
+  overflow:hidden;
+}
+
+/* CARD */
+.card{
+  background:#fff;
+  width:92%;
+  max-width:360px;
+  padding:30px 22px 34px;
+  border-radius:22px;
+  text-align:center;
+  box-shadow:0 18px 40px rgba(0,0,0,.15);
+  position:relative;
+  z-index:2;
+}
+
+/* IMAGE */
+.card img{
+  width:150px;
+  margin-bottom:18px;
+  animation:float 3s ease-in-out infinite;
+}
+@keyframes float{
+  50%{transform:translateY(-8px)}
+}
+
+/* HEARTBEAT TITLE */
+h1{
+  font-family:'Playfair Display',serif;
+  font-size:22px;
+  color:#222;
+  margin-bottom:14px;
+  animation:heartbeat 1.3s infinite;
+}
+@keyframes heartbeat{
+  0%{transform:scale(1)}
+  25%{transform:scale(1.08)}
+  40%{transform:scale(1)}
+  60%{transform:scale(1.12)}
+  100%{transform:scale(1)}
+}
+
+/* SUB TEXT */
+p{
+  color:#d74d4d;
+  font-size:16px;
+  margin-bottom:24px;
+}
+
+/* BUTTON */
+button{
+  padding:12px 32px;
+  border-radius:26px;
+  border:none;
+  background:linear-gradient(135deg,#ff6b6b,#ff8787);
+  color:#fff;
+  font-size:15px;
+  cursor:pointer;
+  box-shadow:0 8px 20px rgba(255,107,107,0.5);
+}
+button:active{
+  transform:scale(0.95);
+}
+
+/* CONFETTI */
+.confetti{
+  position:absolute;
+  top:-10px;
+  font-size:16px;
+  animation:fall linear forwards;
+}
+@keyframes fall{
+  to{transform:translateY(100vh) rotate(360deg);opacity:0}
+}
+
+/* FLOATING HEARTS */
+.heart{
+  position:absolute;
+  bottom:-20px;
+  font-size:18px;
+  animation:floatUp linear forwards;
+}
+@keyframes floatUp{
+  to{transform:translateY(-100vh);opacity:0}
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <!-- CHANGE IMAGE NAME IF NEEDED -->
+  <img src="couple2.png" alt="Couple">
+
+  <h1>Yaaahhh! Be my forever valentine!</h1>
+
+  <p>I want to show you some special moments of us 💖</p>
+
+  <button onclick="window.location.href='page3.html'">
+    See the moments
+  </button>
+</div>
+
+<script>
+/* CONFETTI BLAST */
+for(let i=0;i<40;i++){
+  const c=document.createElement("div");
+  c.className="confetti";
+  c.innerHTML="🎉";
+  c.style.left=Math.random()*100+"vw";
+  c.style.animationDuration=(3+Math.random()*2)+"s";
+  document.body.appendChild(c);
+  setTimeout(()=>c.remove(),5000);
+}
+
+/* FLOATING LOVE */
+setInterval(()=>{
+  const h=document.createElement("div");
+  h.className="heart";
+  h.innerHTML="❤️";
+  h.style.left=Math.random()*100+"vw";
+  h.style.animationDuration=(4+Math.random()*2)+"s";
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),6000);
+},350);
+</script>
+
+</body>
+</html>

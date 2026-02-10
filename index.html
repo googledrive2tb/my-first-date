@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Valentine 💖</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  min-height:100vh;
+  background:linear-gradient(180deg,#e9a9a1,#f5c1b7);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:'Poppins',sans-serif;
+  overflow:hidden;
+}
+
+.card{
+  background:#fff;
+  width:92%;
+  max-width:360px;
+  padding:26px 20px 30px;
+  border-radius:20px;
+  text-align:center;
+  box-shadow:0 18px 40px rgba(0,0,0,.15);
+  z-index:2;
+}
+
+h1{
+  font-family:'Playfair Display',serif;
+  font-size:20px;
+  color:#d46a6a;
+  margin-bottom:18px;
+}
+
+.card img{
+  width:150px;
+  margin:0 auto 18px;
+  animation:float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+  50%{transform:translateY(-8px)}
+}
+
+.buttons{
+  display:flex;
+  justify-content:center;
+  gap:16px;
+}
+
+button{
+  padding:10px 26px;
+  border-radius:22px;
+  border:none;
+  font-size:14px;
+  cursor:pointer;
+}
+
+#yesBtn{
+  background:#ff6b6b;
+  color:#fff;
+}
+
+#noBtn{
+  background:#ffe1e1;
+  color:#b14b4b;
+  position:relative;
+}
+
+.hint{
+  margin-top:18px;
+  font-size:13px;
+  color:#777;
+}
+
+/* floating hearts */
+.heart{
+  position:absolute;
+  bottom:-20px;
+  font-size:16px;
+  animation:floatUp 5s linear forwards;
+}
+@keyframes floatUp{
+  to{transform:translateY(-100vh);opacity:0}
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <h1>Deepa, will you be my valentine?</h1>
+  <img src="couple1.png">
+  <div class="buttons">
+    <button id="yesBtn">Yes</button>
+    <button id="noBtn">No</button>
+  </div>
+  <div class="hint">Don’t waste your time to follow the No 😏💖</div>
+</div>
+
+<script>
+const noBtn=document.getElementById("noBtn");
+const yesBtn=document.getElementById("yesBtn");
+
+noBtn.onclick=()=>{
+  noBtn.style.transform=`translate(${Math.random()*140-70}px,${Math.random()*120-60}px)`;
+};
+
+yesBtn.onclick=()=>{
+  window.location.href="page2.html";
+};
+
+// floating hearts
+setInterval(()=>{
+  const h=document.createElement("div");
+  h.className="heart";
+  h.innerHTML="❤️";
+  h.style.left=Math.random()*100+"vw";
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),5000);
+},400);
+</script>
+
+</body>
+</html>
